@@ -1,4 +1,4 @@
-package com.richard.jo.sqlitestatementbuilder;
+package com.richard.jo.sqlitebuilder;
 
 import android.test.InstrumentationTestCase;
 

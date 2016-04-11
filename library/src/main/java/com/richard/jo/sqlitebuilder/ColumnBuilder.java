@@ -1,4 +1,4 @@
-package com.richard.jo.sqlitestatementbuilder;
+package com.richard.jo.sqlitebuilder;
 
 import java.util.ArrayList;
 import java.util.List;

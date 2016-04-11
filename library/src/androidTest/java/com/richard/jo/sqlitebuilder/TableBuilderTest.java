@@ -1,4 +1,4 @@
-package com.richard.jo.sqlitestatementbuilder;
+package com.richard.jo.sqlitebuilder;
 
 import android.test.InstrumentationTestCase;
 
@@ -37,5 +37,27 @@ public class TableBuilderTest extends InstrumentationTestCase{
                 .addTextColumn(columnName2)
                 .addUniqueConstraint(columnNames, TableBuilder.OnConflictClause.REPLACE);
         assertEquals("CREATE TABLE test_table(test_column1 TEXT, test_column2 TEXT, UNIQUE(test_column1, test_column2) ON CONFLICT REPLACE)", tableBuilder.execute());
+    }
+
+    public void testAddForeignKeyWithDeleteCascade() throws Exception {
+        String columnName = "test_column";
+        String foreignTableName = "foreign_table";
+        String foreignColumnName = "foreign_column";
+
+        TableBuilder tableBuilder = new TableBuilder("test_table");
+        tableBuilder.addForeignKey(columnName, foreignTableName, foreignColumnName, true);
+
+        assertEquals("CREATE TABLE test_table(FOREIGN KEY(test_column) REFERENCES foreign_table(foreign_column) ON DELETE CASCADE)", tableBuilder.execute());
+    }
+
+    public void testAddForeignKeyWithoutDeleteCascade() throws Exception {
+        String columnName = "test_column";
+        String foreignTableName = "foreign_table";
+        String foreignColumnName = "foreign_column";
+
+        TableBuilder tableBuilder = new TableBuilder("test_table");
+        tableBuilder.addForeignKey(columnName, foreignTableName, foreignColumnName, false);
+
+        assertEquals("CREATE TABLE test_table(FOREIGN KEY(test_column) REFERENCES foreign_table(foreign_column))", tableBuilder.execute());
     }
 }

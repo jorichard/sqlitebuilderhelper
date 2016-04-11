@@ -1,1 +1,1 @@
-include ':sample', ':sqlitestatementbuilder'
+include ':sample', ':library'
