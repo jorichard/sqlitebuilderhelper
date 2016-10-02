@@ -4,6 +4,7 @@ import android.test.InstrumentationTestCase;
 
 public class ColumnBuilderTest extends InstrumentationTestCase {
 
+
     public void testColumnBuilder() throws Exception {
         ColumnBuilder columnBuilder = new ColumnBuilder("test_column", "TEXT");
 
