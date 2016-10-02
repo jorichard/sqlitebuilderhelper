@@ -24,7 +24,7 @@ public class TableBuilder {
 
     private List<String> createTableCommand;
 
-    TableBuilder(String tableName){
+    public TableBuilder(String tableName){
         createTableCommand = new ArrayList<>();
         createTableCommand.add(CREATE_TABLE + SPACE + tableName + OPEN_PARENTHESIS);
         createTableCommand.add(CLOSED_PARENTHESIS);
