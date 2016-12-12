@@ -12,9 +12,10 @@ public class TableBuilderTest extends InstrumentationTestCase{
                 .addAutoIncrementIntegerPrimaryKeyColumn("_id")
                 .addLongColumn("time")
                 .addIntegerColumn("type")
-                .addTextColumn("detail");
+                .addTextColumn("detail")
+                .addRealColumn("value");
 
-        assertEquals("CREATE TABLE test_table(_id INTEGER PRIMARY KEY AUTOINCREMENT, time LONG, type INTEGER, detail TEXT)", tableBuilder.execute());
+        assertEquals("CREATE TABLE test_table(_id INTEGER PRIMARY KEY AUTOINCREMENT, time LONG, type INTEGER, detail TEXT, value REAL)", tableBuilder.execute());
     }
 
     public void testAddUniqueConstraint() throws Exception {

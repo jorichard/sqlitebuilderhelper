@@ -15,6 +15,7 @@ public class TableBuilder {
     private static final String TEXT_COLUMN = "TEXT";
     private static final String INTEGER_COLUMN = "INTEGER";
     private static final String LONG_COLUMN = "LONG";
+    private static final String REAL_COLUMN = "REAL";
     private static final String UNIQUE = "UNIQUE";
     private static final String ON_CONFLICT = "ON CONFLICT";
     private static final String CLOSED_PARENTHESIS = ")";
@@ -48,6 +49,11 @@ public class TableBuilder {
 
     public TableBuilder addLongColumn(String columnName){
         insertNewCommand(new ColumnBuilder(columnName, LONG_COLUMN).execute());
+        return this;
+    }
+
+    public TableBuilder addRealColumn(String columnName){
+        insertNewCommand(new ColumnBuilder(columnName, REAL_COLUMN).execute());
         return this;
     }
 
