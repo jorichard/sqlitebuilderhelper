@@ -5,7 +5,7 @@ import java.util.List;
 
 public class TableBuilder {
     //sqlite default is ABORT
-    enum OnConflictClause{ROLLBACK, ABORT, FAIL, IGNORE, REPLACE}
+    public enum OnConflictClause{ROLLBACK, ABORT, FAIL, IGNORE, REPLACE}
 
     private static final String COLUMN_SEPARATOR = ", ";
     private static final String SPACE = " ";
